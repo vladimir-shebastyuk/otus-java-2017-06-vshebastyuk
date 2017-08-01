@@ -25,10 +25,16 @@ public class JsonMap implements JsonValue {
         for(Object entryObj: map.entrySet()){
             Map.Entry entry = (Map.Entry)entryObj;
 
-            this.fields.put(
+            this.put(
                     entry.getKey().toString(),
                     JsonValueFactory.createFromObject(entry.getValue())
             );
+        }
+    }
+
+    protected void put(String key, JsonValue value){
+        if(!(value instanceof JsonNull)){ //поля с null значениями не сохраняем в JSON
+            this.fields.put(key,value);
         }
     }
 

@@ -16,7 +16,7 @@ public class JsonObject extends JsonMap {
         for(Field field: ReflectionHelper.getAllFields(object)){
             //добавляем все поля, кроме ссылки на внешний класс или если поле transient
             if(!field.getName().equals(OUTER_CLASS_REFERENCE_FIELD) && !Modifier.isTransient(field.getModifiers())) {
-                this.fields.put(
+                this.put(
                         field.getName(),
                         JsonValueFactory.createFromObjectField(field, object)
                 );

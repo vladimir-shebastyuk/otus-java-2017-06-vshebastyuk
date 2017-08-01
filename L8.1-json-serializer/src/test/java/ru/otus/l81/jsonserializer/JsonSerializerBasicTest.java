@@ -70,6 +70,12 @@ public class JsonSerializerBasicTest extends BaseJsonSerializerTest{
     }
 
     @Test
+    public void nullFieldsSerializationTest() throws Exception {
+        Object object = new NullFieldTestObject();
+        assertEqualsWithGsonSerialization(object);
+    }
+
+    @Test
     public void transientFieldsSerializationTest() throws Exception {
         Object object = new TransientFieldTestObject();
         assertEqualsWithGsonSerialization(object);
