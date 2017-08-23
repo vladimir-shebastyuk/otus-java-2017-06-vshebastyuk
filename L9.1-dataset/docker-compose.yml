@@ -1,0 +1,13 @@
+version: '3.0'
+services:
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: 'password'
+      MYSQL_DATABASE: 'otus'
+      MYSQL_USER: 'otus'
+      MYSQL_PASSWORD: 'otus'
+    volumes:
+      - ./src/main/resources/scripts/create-users-table.sql:/docker-entrypoint-initdb.d/create-users-table.sql
+    ports:
+     - "33306:3306"
