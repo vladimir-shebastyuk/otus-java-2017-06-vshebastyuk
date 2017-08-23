@@ -17,7 +17,9 @@ public class JsonValueFactory {
     }
 
     public static JsonValue createFromObject(Object value) throws JsonSerializerException {
-        if(value.getClass() == String.class){
+        if(value == null){
+            return new JsonNull();
+        }if(value.getClass() == String.class){
             return new JsonString((String) value);
         }else if(value.getClass() == int.class || value.getClass() == Integer.class){
             return new JsonInt((int)value);
