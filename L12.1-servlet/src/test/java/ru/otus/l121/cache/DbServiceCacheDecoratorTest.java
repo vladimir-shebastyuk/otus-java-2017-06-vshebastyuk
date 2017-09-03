@@ -1,13 +1,12 @@
-package ru.otus.l111.cache;
+package ru.otus.l121.cache;
 
-import org.hibernate.collection.internal.PersistentBag;
 import org.junit.Before;
 import org.junit.Test;
-import ru.otus.l111.cache.engine.CacheEngineImpl;
-import ru.otus.l111.datasets.AddressDataSet;
-import ru.otus.l111.datasets.PhoneDataSet;
-import ru.otus.l111.datasets.UserDataSet;
-import ru.otus.l111.hibernate.DbServiceHibernateBaseTest;
+import ru.otus.l121.cache.engine.CacheEngineImpl;
+import ru.otus.l121.datasets.AddressDataSet;
+import ru.otus.l121.datasets.PhoneDataSet;
+import ru.otus.l121.datasets.UserDataSet;
+import ru.otus.l121.hibernate.DbServiceHibernateBaseTest;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -38,13 +37,13 @@ public class DbServiceCacheDecoratorTest extends DbServiceHibernateBaseTest {
     }
 
     protected void shouldMiss(){
-        assertEquals(hit,this.cachedDbService.getHit());
-        assertEquals(++miss,this.cachedDbService.getMiss());
+        assertEquals(hit,this.cachedDbService.getHitCount());
+        assertEquals(++miss,this.cachedDbService.getMissCount());
     }
 
     protected void shouldHit(){
-        assertEquals(++hit,this.cachedDbService.getHit());
-        assertEquals(miss,this.cachedDbService.getMiss());
+        assertEquals(++hit,this.cachedDbService.getHitCount());
+        assertEquals(miss,this.cachedDbService.getMissCount());
     }
 
     /**
