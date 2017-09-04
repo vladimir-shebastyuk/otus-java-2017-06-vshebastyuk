@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app>
+
+    <display-name>L13.1.2</display-name>
+    <description>Example of war file</description>
+
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            classpath:SpringBeans.xml
+        </param-value>
+    </context-param>
+
+    <!-- Servlets -->
+    <servlet>
+        <servlet-name>mainServlet</servlet-name>
+        <servlet-class>ru.otus.l131.web.servlets.MainServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>mainServlet</servlet-name>
+        <url-pattern></url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>loginServlet</servlet-name>
+        <servlet-class>ru.otus.l131.web.servlets.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>loginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>cacheMonitoringServlet</servlet-name>
+        <servlet-class>ru.otus.l131.web.servlets.CacheMonitoringServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>cacheMonitoringServlet</servlet-name>
+        <url-pattern>/cache</url-pattern>
+    </servlet-mapping>
+
+    <!-- Filters -->
+
+    <filter>
+        <filter-name>authFilter</filter-name>
+        <filter-class>ru.otus.l131.web.filters.AuthenticationFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>authFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+</web-app>
