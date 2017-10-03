@@ -32,8 +32,4 @@ public class MainServlet extends HttpServlet {
         resp.setStatus(HttpServletResponse.SC_OK);
     }
 
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
-    }
 }
